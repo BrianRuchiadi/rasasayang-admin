@@ -1,0 +1,42 @@
+.notifications {
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    i {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        color: red;
+        padding: 2px 5px;
+        border-radius: 50%;
+        background-color: white;
+    }
+    div {
+        border: 1px solid;
+        border-color: transparent;
+        border-radius: 4px;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .22), 0 17px 20px 0 rgba(0, 0, 0, .12);
+        cursor: pointer;
+        margin-bottom: .5em;
+        min-height: 3em;
+        padding: 1em;
+        text-align: center;
+        width: 300px;
+        &.success {
+            background-color: #42CC8D;
+            color: white;
+        }
+        &.error {
+            background-color: #CC4242;
+            color: white;
+        }
+        &.warn {
+            background-color: #CC8F42;
+            color: white;
+        }
+        &.info {
+            background-color: #4292CC;
+            color: white;
+        }
+    }
+}

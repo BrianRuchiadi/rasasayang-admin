@@ -1,0 +1,17 @@
+.sidebar {
+    display: inline-block;
+    width: 200px;
+    background-color: #2a2d35;
+    min-height: calc(100vh - 60px);
+    padding-top: 20px;
+}
+
+li {
+    padding: 5px 20px;
+    color: #FFFFFF;
+}
+
+i {
+    color: #f6a821;
+    width: 30px;
+}

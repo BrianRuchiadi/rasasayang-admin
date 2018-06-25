@@ -1,0 +1,5 @@
+<div class="notifications" *ngIf="notes.length">
+    <div (click)="hide(note)" class="{{ note.type }}" *ngFor="let note of notes">
+        <i class="fa fa-times"></i> {{ note.message }}
+    </div>
+</div>

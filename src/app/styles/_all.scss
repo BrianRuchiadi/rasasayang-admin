@@ -1,0 +1,35 @@
+@import 'variables';
+@import './helpers/typography';
+body {
+    font-family: 'Encode Sans Condensed', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.container {
+    display: block;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 90% !important;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.main-container {
+    margin-top: 60px;
+    background-color: #2F323C;
+}
