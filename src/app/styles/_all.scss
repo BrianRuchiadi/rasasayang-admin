@@ -13,6 +13,11 @@ a {
     }
 }
 
+h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
 .container {
     display: block;
 }
@@ -32,4 +37,27 @@ ul {
 .main-container {
     margin-top: 60px;
     background-color: #2F323C;
+}
+
+.content {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100vw - 200px);
+    min-height: 100vh;
+}
+
+.default-panel {
+    display: block;
+    margin: 10px auto;
+    // background-color: wheat;
+    width: calc(100vw - 300px);
+    min-height: 100px;
+    color: white;
+    i {
+        color: #f6a821;
+    }
+}
+
+.white {
+    color: white;
 }

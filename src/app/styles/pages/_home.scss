@@ -1,0 +1,26 @@
+.hot-panel {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(46% - 40px);
+    min-height: 50px;
+    font-size: 12px;
+    margin: 5px 2%;
+    padding: 20px 20px;
+    background-color: rgba(68, 70, 79, 0.5);
+    color: #949ba2;
+    h2 {
+        font-size: 30px;
+        color: white;
+        display: inline-block;
+    }
+    .fa.fa-caret-up,
+    .fa.fa-caret-down {
+        font-size: 20px;
+        margin-left: 10px;
+        vertical-align: text-top;
+    }
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
