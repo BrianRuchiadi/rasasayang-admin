@@ -13,7 +13,11 @@ a {
     }
 }
 
-h2 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     margin: 0px;
     padding: 0px;
 }
@@ -36,7 +40,7 @@ ul {
 
 .main-container {
     margin-top: 60px;
-    background-color: #2F323C;
+    background-color: #24262E;
 }
 
 .content {
@@ -44,6 +48,7 @@ ul {
     vertical-align: top;
     width: calc(100vw - 200px);
     min-height: 100vh;
+    background-color: #2F323C;
 }
 
 .default-panel {
@@ -60,4 +65,9 @@ ul {
 
 .white {
     color: white;
+}
+
+.currency {
+    letter-spacing: 1px;
+    text-align: right !important;
 }
