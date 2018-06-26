@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 
 import { LaddaModule } from 'angular2-ladda';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,6 +19,7 @@ import { NotificationService } from './services/utilities/notification.service';
 import { AuthUserGuard } from './guards/auth.user.guard';
 import { RequestInterceptorsProviders } from './middlewares/request/request-interceptors.provider';
 import { ErrorHandlerProviders } from './middlewares/error/error.provider';
+//
 import { NotificationComponent } from './components/common/notification/notification.component';
 import { TopbarComponent } from './components/common/topbar/topbar.component';
 import { SidebarComponent } from './components/common/sidebar/sidebar.component';
@@ -61,6 +63,7 @@ import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
     LaddaModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
+    NgxDatatableModule
   ],
   providers: [
     AuthService,
