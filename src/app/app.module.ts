@@ -24,6 +24,14 @@ import { SidebarComponent } from './components/common/sidebar/sidebar.component'
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { FinanceComponent } from './components/pages/finance/finance.component';
+import { ProductComponent } from './components/pages/product/product.component';
+import { BranchComponent } from './components/pages/branch/branch.component';
+import { VendorComponent } from './components/pages/vendor/vendor.component';
+import { ShippingComponent } from './components/pages/shipping/shipping.component';
+import { ShareholderComponent } from './components/pages/shareholder/shareholder.component';
+import { DigitalanalyticComponent } from './components/pages/digitalanalytic/digitalanalytic.component';
+import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +42,14 @@ import { RegisterComponent } from './components/pages/register/register.componen
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    FinanceComponent,
+    ProductComponent,
+    BranchComponent,
+    VendorComponent,
+    ShippingComponent,
+    ShareholderComponent,
+    DigitalanalyticComponent,
+    LoyaltyComponent,
     // components
   ],
   imports: [

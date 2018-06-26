@@ -9,14 +9,14 @@
     background-color: rgba(68, 70, 79, 0.5);
     color: #949ba2;
     h2 {
-        font-size: 30px;
-        color: white;
         display: inline-block;
+        font-size: 30px;
+        letter-spacing: 2px;
+        color: white;
     }
     .fa.fa-caret-up,
     .fa.fa-caret-down {
         font-size: 20px;
-        margin-left: 10px;
         vertical-align: text-top;
     }
     span {
