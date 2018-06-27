@@ -102,21 +102,36 @@
             </div>
         </div>
 
-        <div class="default-panel">
-            <h2>Products</h2>
+        <div class="default-panel product">
+            <h2>
+                <span class="force-left">
+                    <i class="fa fa-trash-o" (click)="deleteProducts()"></i>
+                </span> Products
+            </h2>
             <table class="product">
                 <thead>
                     <tr>
+                        <th width="40"></th>
                         <th width="80">Thumbnail</th>
-                        <th>Name <i class="fa fa-sort" (click)="sortData('name')"></i></th>
-                        <th width="100">Base Price <i class="fa fa-sort" (click)="sortData('base_price')"></i></th>
-                        <th width="100">Selling Price <i class="fa fa-sort" (click)="sortData('selling_price')"></i></th>
+                        <th width="100">Name <i class="fa fa-sort" (click)="sortData('name')"></i></th>
+                        <th width="150">Base Price <i class="fa fa-sort" (click)="sortData('base_price')"></i></th>
+                        <th width="150">Selling Price <i class="fa fa-sort" (click)="sortData('selling_price')"></i></th>
                         <th width="80">Total Sold <i class="fa fa-sort" (click)="sortData('total_sold')"></i></th>
                         <th width="100">Total Profit <i class="fa fa-sort" (click)="sortData('total_profit')"></i></th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><input type="text" placeholder="Name" /></td>
+                        <td><input type="text" placeholder="Base price" /></td>
+                        <td><input type="text" placeholder="Selling price" /></td>
+                        <td colspan="2">
+                            <button class="add">Add Product</button>
+                        </td>
+                    </tr>
                     <tr *ngFor="let product of products">
+                        <td><input type="checkbox" [(ngModel)]="product.isSelected"></td>
                         <td class="text-left"><img src="./../../../../assets/products/{{product.thumbnail}}" class="thumbnail" /> </td>
                         <td class="text-left">{{ product.name | titlecase }}</td>
                         <td class="currency">{{ product.base_price | currency:'IDR':'symbol-narrow':'1.2-3' }}</td>
@@ -124,6 +139,7 @@
                         <td class="text-center">{{ product.total_sold }}</td>
                         <td class="currency">{{ product.total_profit | currency:'IDR':'symbol-narrow':'1.2-3'}}</td>
                     </tr>
+
                 </tbody>
             </table>
         </div>

@@ -1,7 +1,7 @@
 .notifications {
     right: 10px;
     top: 10px;
-    position: absolute;
+    position: fixed;
     i {
         position: absolute;
         top: 5px;
@@ -23,7 +23,7 @@
         text-align: center;
         width: 300px;
         &.success {
-            background-color: #42CC8D;
+            background-color: #16DB93;
             color: white;
         }
         &.error {
@@ -31,11 +31,11 @@
             color: white;
         }
         &.warn {
-            background-color: #CC8F42;
+            background-color: #F6A821;
             color: white;
         }
         &.info {
-            background-color: #4292CC;
+            background-color: #048BA8;
             color: white;
         }
     }

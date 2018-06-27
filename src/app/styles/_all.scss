@@ -1,6 +1,7 @@
 @import 'variables';
 @import './helpers/typography';
-body {
+body,
+input {
     font-family: 'Encode Sans Condensed', sans-serif;
 }
 
@@ -78,4 +79,19 @@ ul {
 
 .text-center {
     text-align: center;
+}
+
+.with-border {
+    border: 1px solid white;
+}
+
+.force-left {
+    padding-left: 10px;
+    float: left;
+}
+
+input {
+    &:focus {
+        outline: none;
+    }
 }

@@ -29,7 +29,7 @@ export class ErrorHandlerMiddleware implements ErrorHandler {
         } else {
             // handle client error / angular related error
             console.log(['a CLIENT error detected in error-handler middleware', error]);
-            this.notificationService.add(new Notification('error', 'client error : ' + error));
+            this.notificationService.add(new Notification('error', 'client side : ' + error));
         }
     }
 }

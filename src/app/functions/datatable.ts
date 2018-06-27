@@ -16,16 +16,16 @@ export const sortTable = (
             dataFirst[attribute] = dataFirst[attribute].toLowerCase();
             dataSecond[attribute] = dataSecond[attribute].toLowerCase();
 
-            if (sortBy === 'ascending') {
-                if (dataFirst[attribute] <= dataSecond[attribute]) {
-                    return 1;
-                }
+            if (sortBy === 'ascending' &&
+                dataFirst[attribute] <= dataSecond[attribute]
+            ) {
+                return 1;
             }
 
-            if (sortBy === 'descending') {
-                if (dataFirst[attribute] > dataSecond[attribute]) {
-                    return 1;
-                }
+            if (sortBy === 'descending' &&
+                dataFirst[attribute] > dataSecond[attribute]
+            ) {
+                return 1;
             }
         }
 
