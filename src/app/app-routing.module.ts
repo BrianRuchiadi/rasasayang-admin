@@ -13,10 +13,12 @@ import { DigitalanalyticComponent } from './components/pages/digitalanalytic/dig
 import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { ChangepasswordComponent } from './components/pages/changepassword/changepassword.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthUserGuard]},
   { path: 'register', component: RegisterComponent, canActivate: [AuthUserGuard]},
+  { path: 'password/change', component: ChangepasswordComponent, canActivate: [AuthUserGuard]},
   { path: 'home', component: HomeComponent, canActivate: [AuthUserGuard]},
   { path: 'finance', component: FinanceComponent, canActivate: [AuthUserGuard]},
   { path: 'products', component: ProductComponent, canActivate: [AuthUserGuard]},

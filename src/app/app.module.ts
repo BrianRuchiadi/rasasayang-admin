@@ -34,6 +34,7 @@ import { ShippingComponent } from './components/pages/shipping/shipping.componen
 import { ShareholderComponent } from './components/pages/shareholder/shareholder.component';
 import { DigitalanalyticComponent } from './components/pages/digitalanalytic/digitalanalytic.component';
 import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
+import { ChangepasswordComponent } from './components/pages/changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
     ShareholderComponent,
     DigitalanalyticComponent,
     LoyaltyComponent,
+    ChangepasswordComponent,
     // components
   ],
   imports: [
