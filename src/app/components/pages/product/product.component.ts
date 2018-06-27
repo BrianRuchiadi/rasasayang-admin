@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
     base_price: null,
     selling_price: null
   };
+  originalProducts: Array<Object>;
   products: Array<Object>;
   productsTableSortStatus: any  = {
     name: null,
@@ -32,6 +33,8 @@ export class ProductComponent implements OnInit {
 
   productSelectedStart: any = null;
   productSelectedEnd: any = null;
+
+  productSearch: any = '';
 
   constructor(
     private notificationService: NotificationService
@@ -59,6 +62,7 @@ export class ProductComponent implements OnInit {
       {id: 4, thumbnail: 'pisangnugget.jpg', name: 'pisang nugget', base_price: 2000.00, selling_price: 5000.00, total_sold: 40,
         total_profit: 120000, isSelected: false}
     ];
+    this.originalProducts = JSON.parse(JSON.stringify(this.products));
     this.thumbnailElement = document.getElementById('thumbnail');
     this.thumbnailPreviewElement = document.getElementById('thumbnail-preview');
   }
@@ -85,6 +89,28 @@ export class ProductComponent implements OnInit {
       thumbnailElement,
       thumbnailPreviewElement
     );
+  }
+
+  triggerProductSearch(ev) {
+    const val = ev.target.value;
+    this.products = this.originalProducts;
+
+    if (!val || val.trim() === '') {
+      return;
+    }
+
+    this.products = this.products.filter(
+      (product: any) => {
+        return (
+          product.name.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
+          product.base_price.toLocaleString().indexOf(val.toLowerCase()) > -1 ||
+          product.selling_price.toLocaleString().indexOf(val.toLowerCase()) > -1 ||
+          product.total_sold.toLocaleString().indexOf(val.toLowerCase()) > -1 ||
+          product.total_profit.toLocaleString().indexOf(val.toLowerCase()) > -1
+        );
+      }
+    );
+    console.log(['trigger product search', val]);
   }
 
   productChecked(product) {
