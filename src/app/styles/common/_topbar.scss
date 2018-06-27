@@ -111,7 +111,11 @@ label {
 
 .fa.fa-bars {
     float: left;
-    padding-left: 25px;
+    margin-left: 25px;
+    &:hover {
+        color: #f6a821;
+        cursor: pointer;
+    }
 }
 
 /// #949ba2 color text

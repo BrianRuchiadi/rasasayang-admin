@@ -11,8 +11,12 @@ import { ShippingComponent } from './components/pages/shipping/shipping.componen
 import { ShareholderComponent } from './components/pages/shareholder/shareholder.component';
 import { DigitalanalyticComponent } from './components/pages/digitalanalytic/digitalanalytic.component';
 import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { RegisterComponent } from './components/pages/register/register.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent, canActivate: [AuthUserGuard]},
+  { path: 'register', component: RegisterComponent, canActivate: [AuthUserGuard]},
   { path: 'home', component: HomeComponent, canActivate: [AuthUserGuard]},
   { path: 'finance', component: FinanceComponent, canActivate: [AuthUserGuard]},
   { path: 'products', component: ProductComponent, canActivate: [AuthUserGuard]},
