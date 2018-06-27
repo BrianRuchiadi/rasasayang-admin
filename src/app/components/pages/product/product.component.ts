@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { sortTable } from './../../../functions/datatable';
 import { NotificationService } from '../../../services/utilities/notification.service';
 import { NotificationCode } from '../../../enums/notification-code';
 import { previewSingleImageThumbnail, removeSingleImageThumbnail } from '../../../functions/image-handler';
+import { multipleCheckbox } from '../../../functions/multiple-checkbox';
 
 @Component({
   selector: 'app-product',
@@ -29,9 +30,23 @@ export class ProductComponent implements OnInit {
   thumbnailPreviewElement: any;
   thumbnailElement: any;
 
+  productSelectedStart: any = null;
+  productSelectedEnd: any = null;
+
   constructor(
     private notificationService: NotificationService
   ) { }
+
+  @HostListener('window:keyup', ['$event'])
+    keyEvent(event: KeyboardEvent) {
+      if (event.keyCode === 16 && this.productSelectedEnd) {
+        multipleCheckbox(
+          this.productSelectedStart,
+          this.productSelectedEnd,
+          this.products
+        );
+      }
+    }
 
   ngOnInit() {
     this.products = [
@@ -40,7 +55,9 @@ export class ProductComponent implements OnInit {
       {id: 2, thumbnail: 'pastel.jpg', name: 'pastel', base_price: 1000.00, selling_price: 3000.00, total_sold: 80,
         total_profit: 160000, isSelected: false},
       {id: 3, thumbnail: 'pisangkipas.jpg', name: 'pisang kipas', base_price: 1500.00, selling_price: 3000.00, total_sold: 70,
-        total_profit: 105000, isSelected: false}
+        total_profit: 105000, isSelected: false},
+      {id: 4, thumbnail: 'pisangnugget.jpg', name: 'pisang nugget', base_price: 2000.00, selling_price: 5000.00, total_sold: 40,
+        total_profit: 120000, isSelected: false}
     ];
     this.thumbnailElement = document.getElementById('thumbnail');
     this.thumbnailPreviewElement = document.getElementById('thumbnail-preview');
@@ -70,6 +87,21 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  productChecked(product) {
+    const checkedProduct = this.products.filter((prod: any) => prod.isSelected === true);
+    if (!checkedProduct.length) {
+      this.productSelectedStart = null;
+      this.productSelectedEnd = null;
+      return;
+    }
+
+    if (!this.productSelectedStart) {
+      this.productSelectedStart = product.id;
+    } else {
+      this.productSelectedEnd = (this.productSelectedStart === product.id) ? null : product.id;
+    }
+  }
+
   deleteProducts() {
     const selectedProducts = this.products.filter((product: any) => product.isSelected === true);
     const remainedProducts = this.products.filter((product: any) => product.isSelected === false);
@@ -79,7 +111,7 @@ export class ProductComponent implements OnInit {
     }
 
     if (confirm(`are you sure to delete these selected product?`)) {
-      this.notificationService.add({type: NotificationCode.SUCCESS, message: 'you have successfully delete the selected products'})
+      this.notificationService.add({type: NotificationCode.SUCCESS, message: 'you have successfully delete the selected products'});
       this.products = remainedProducts;
     }
 

@@ -132,12 +132,12 @@
                         <td><input type="text" [(ngModel)]="newProduct.name" placeholder="Name" /></td>
                         <td><input type="text" [(ngModel)]="newProduct.base_price" placeholder="Base price" /></td>
                         <td><input type="text" [(ngModel)]="newProduct.selling_price" placeholder="Selling price" /></td>
-                        <td colspan="2 ">
-                            <button class="add ">Add Product</button>
+                        <td colspan="2">
+                            <button class="add">Add Product</button>
                         </td>
                     </tr>
                     <tr *ngFor="let product of products">
-                        <td><input type="checkbox" [(ngModel)]="product.isSelected"></td>
+                        <td><input type="checkbox" [(ngModel)]="product.isSelected" (change)="productChecked(product)"></td>
                         <td class="text-left"><img src="./../../../../assets/products/{{product.thumbnail}}" class="thumbnail" /> </td>
                         <td class="text-left">{{ product.name | titlecase }}</td>
                         <td class="currency">{{ product.base_price | currency:'IDR':'symbol-narrow':'1.2-3' }}</td>

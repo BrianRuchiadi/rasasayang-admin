@@ -5,7 +5,7 @@ export const previewSingleImageThumbnail = (
 ) => {
     const fileReader = new FileReader();
     console.log(['previewSingleImageThumbnail', thumbnailElement, thumbnailPreviewElement]);
-    fileReader.onloadend = (readerEvent) => {
+    fileReader.onloadend = (readerEvent: any) => {
         thumbnailElement.src = readerEvent.target.result;
         thumbnailPreviewElement.style.display = 'block';
     };
