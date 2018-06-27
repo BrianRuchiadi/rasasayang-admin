@@ -53,7 +53,7 @@ import { ChangepasswordComponent } from './components/pages/changepassword/chang
     ShareholderComponent,
     DigitalanalyticComponent,
     LoyaltyComponent,
-    ChangepasswordComponent,
+    ChangepasswordComponent
     // components
   ],
   imports: [

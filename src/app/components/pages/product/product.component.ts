@@ -30,6 +30,7 @@ export class ProductComponent implements OnInit {
   };
   thumbnailPreviewElement: any;
   thumbnailElement: any;
+  isDeleteProductModalOpen: any = false;
 
   productSelectedStart: any = null;
   productSelectedEnd: any = null;
@@ -110,7 +111,6 @@ export class ProductComponent implements OnInit {
         );
       }
     );
-    console.log(['trigger product search', val]);
   }
 
   productChecked(product) {
@@ -128,20 +128,27 @@ export class ProductComponent implements OnInit {
     }
   }
 
-  deleteProducts() {
+  showDeleteProductsModal() {
     const selectedProducts = this.products.filter((product: any) => product.isSelected === true);
-    const remainedProducts = this.products.filter((product: any) => product.isSelected === false);
 
     if (!selectedProducts.length) {
       throw new Error('No product is selected');
     }
 
-    if (confirm(`are you sure to delete these selected product?`)) {
-      this.notificationService.add({type: NotificationCode.SUCCESS, message: 'you have successfully delete the selected products'});
-      this.products = remainedProducts;
-    }
+    this.isDeleteProductModalOpen = true;
+  }
 
+  dismissDeleteProductsModal() {
+    this.isDeleteProductModalOpen = false;
+  }
 
+  confirmDeleteProductsModal() {
+    const remainedProducts = this.products.filter((product: any) => product.isSelected === false);
+
+    this.notificationService.add({type: NotificationCode.SUCCESS, message: 'you have successfully delete the selected products'});
+    this.products = remainedProducts;
+
+    this.dismissDeleteProductsModal();
   }
 
 
