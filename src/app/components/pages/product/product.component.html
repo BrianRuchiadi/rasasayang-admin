@@ -122,12 +122,18 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="2"></td>
-                        <td><input type="text" placeholder="Name" /></td>
-                        <td><input type="text" placeholder="Base price" /></td>
-                        <td><input type="text" placeholder="Selling price" /></td>
                         <td colspan="2">
-                            <button class="add">Add Product</button>
+                            <input type="file" #imageFile [(ngModel)]="newProduct.thumbnail" (change)="previewThumbnail(thumbnailElement, thumbnailPreviewElement)">
+                            <div class="preview" id="thumbnail-preview">
+                                <i class="fa fa-times" (click)="deleteThumbnail(thumbnailElement, thumbnailPreviewElement)"></i>
+                                <img id="thumbnail">
+                            </div>
+                        </td>
+                        <td><input type="text" [(ngModel)]="newProduct.name" placeholder="Name" /></td>
+                        <td><input type="text" [(ngModel)]="newProduct.base_price" placeholder="Base price" /></td>
+                        <td><input type="text" [(ngModel)]="newProduct.selling_price" placeholder="Selling price" /></td>
+                        <td colspan="2 ">
+                            <button class="add ">Add Product</button>
                         </td>
                     </tr>
                     <tr *ngFor="let product of products">

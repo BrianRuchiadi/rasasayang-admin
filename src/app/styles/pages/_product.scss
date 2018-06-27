@@ -15,7 +15,7 @@
         &.product {
             width: auto;
             margin: 10px auto;
-            input {
+            input:not([type=checkbox]) {
                 color: white;
                 text-align: left;
                 width: 90%;
@@ -24,8 +24,9 @@
                 border-bottom: 1px solid #f6a821;
                 background-color: transparent;
             }
-            input[type='checkbox'] {
-                width: auto;
+            input[type='file'] {
+                font-size: 9px;
+                border: none;
             }
             .fa {
                 &:hover {
@@ -34,6 +35,9 @@
             }
             thead {
                 text-align: center;
+                tr th {
+                    padding-bottom: 5px;
+                }
             }
             tbody {
                 tr {
@@ -110,4 +114,24 @@ button {
 
 .fa.fa-trash-o {
     color: #A4243B;
+}
+
+#thumbnail {
+    height: 40px;
+    width: 80px;
+    border: 1px solid white;
+    margin: 5px auto;
+}
+
+#thumbnail-preview {
+    display: none;
+    position: relative;
+    .fa.fa-times {
+        position: absolute;
+        left: 20px;
+        color: red;
+        background-color: white;
+        border-radius: 50%;
+        padding: 2px 4px;
+    }
 }

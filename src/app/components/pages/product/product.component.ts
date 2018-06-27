@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { sortTable } from './../../../functions/datatable';
 import { NotificationService } from '../../../services/utilities/notification.service';
 import { NotificationCode } from '../../../enums/notification-code';
+import { previewSingleImageThumbnail, removeSingleImageThumbnail } from '../../../functions/image-handler';
 
 @Component({
   selector: 'app-product',
@@ -9,14 +10,24 @@ import { NotificationCode } from '../../../enums/notification-code';
   styleUrls: ['./../../../styles/pages/_product.scss']
 })
 export class ProductComponent implements OnInit {
+  @ViewChild('imageFile') imageFile: ElementRef;
+
+  newProduct: any = {
+    thumbnail: null,
+    name: null,
+    base_price: null,
+    selling_price: null
+  };
   products: Array<Object>;
-  productsTableSortStatus: Object  = {
+  productsTableSortStatus: any  = {
     name: null,
     base_price: null,
     selling_price: null,
     total_sold: null,
     total_profit: null
   };
+  thumbnailPreviewElement: any;
+  thumbnailElement: any;
 
   constructor(
     private notificationService: NotificationService
@@ -31,6 +42,8 @@ export class ProductComponent implements OnInit {
       {id: 3, thumbnail: 'pisangkipas.jpg', name: 'pisang kipas', base_price: 1500.00, selling_price: 3000.00, total_sold: 70,
         total_profit: 105000, isSelected: false}
     ];
+    this.thumbnailElement = document.getElementById('thumbnail');
+    this.thumbnailPreviewElement = document.getElementById('thumbnail-preview');
   }
 
   sortData(attributes) {
@@ -41,9 +54,25 @@ export class ProductComponent implements OnInit {
     );
   }
 
+  previewThumbnail(thumbnailElement, thumbnailPreviewElement) {
+    previewSingleImageThumbnail(
+      thumbnailElement,
+      thumbnailPreviewElement,
+      this.imageFile.nativeElement.files[0]
+    );
+  }
+
+  deleteThumbnail(thumbnailElement, thumbnailPreviewElement) {
+    this.newProduct.thumbnail = null;
+    removeSingleImageThumbnail(
+      thumbnailElement,
+      thumbnailPreviewElement
+    );
+  }
+
   deleteProducts() {
-    const selectedProducts = this.products.filter((product) => product.isSelected === true);
-    const remainedProducts = this.products.filter((product) => product.isSelected === false);
+    const selectedProducts = this.products.filter((product: any) => product.isSelected === true);
+    const remainedProducts = this.products.filter((product: any) => product.isSelected === false);
 
     if (!selectedProducts.length) {
       throw new Error('No product is selected');
