@@ -6,11 +6,11 @@
         <i class="fa fa-bars"></i>
         <ul>
             <li class="notification">
-                <i class="fa fa-bell"></i>
+                <i class="fa fa-bell" (click)="triggerContent('notification')"></i>
                 <label>5</label>
                 <!-- <i class="fa fa-bell-o"></i> -->
 
-                <ul class="notification-content" style="display: none;">
+                <ul class="notification-content" id="notification-content" style="display: none;">
                     <li>Notification 1</li>
                     <li>Notification 2</li>
                     <li>Notification 3</li>
@@ -18,11 +18,11 @@
                 </ul>
             </li>
             <li class="email">
-                <i class="fa fa-envelope"></i>
+                <i class="fa fa-envelope" (click)="triggerContent('email')"></i>
                 <label>4</label>
                 <!-- <i class="fa fa-envelope-o"></i> -->
 
-                <ul class="email-content" style="display: none;">
+                <ul class="email-content" id="email-content" style="display: none;">
                     <li>
                         Adam
                         <br/>
@@ -42,9 +42,9 @@
                 </ul>
             </li>
             <li class="setting">
-                <i class="fa fa-cog"></i>
+                <i class="fa fa-cog" (click)="triggerContent('setting')"></i>
 
-                <ul class="setting-content" style="display: none;">
+                <ul class="setting-content" id="setting-content" style="display: none;">
                     <li>
                         <i class="fa fa-key"></i> Change Password
                     </li>

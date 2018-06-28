@@ -41,6 +41,7 @@ header {
                 }
                 ul.notification-content {
                     position: absolute;
+                    border-radius: 4px;
                     width: 180px;
                     right: 10px;
                     margin-top: 5px;
@@ -52,12 +53,19 @@ header {
                         padding: 5px 10px;
                         border-bottom: 1px solid white;
                         display: block;
+                        &:hover {
+                            background-color: #2a2d35;
+                        }
+                        &:last-child {
+                            border: none;
+                        }
                     }
                 }
             }
             &.email {
                 ul.email-content {
                     position: absolute;
+                    border-radius: 4px;
                     width: 180px;
                     right: 10px;
                     margin-top: 5px;
@@ -69,12 +77,19 @@ header {
                         padding: 5px 10px;
                         border-bottom: 1px solid white;
                         display: block;
+                        &:hover {
+                            background-color: #2a2d35;
+                        }
+                        &:last-child {
+                            border: none;
+                        }
                     }
                 }
             }
             &.setting {
                 ul.setting-content {
                     position: absolute;
+                    border-radius: 4px;
                     width: 180px;
                     right: 10px;
                     margin-top: 5px;
@@ -86,6 +101,12 @@ header {
                         padding: 5px 10px;
                         border-bottom: 1px solid white;
                         display: block;
+                        &:hover {
+                            background-color: #2a2d35;
+                        }
+                        &:last-child {
+                            border: none;
+                        }
                     }
                 }
             }
