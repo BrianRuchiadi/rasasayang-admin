@@ -119,14 +119,16 @@
         </div>
 
         <div class="default-panel product">
-            <div class="search-bar">
-                <i class="fa fa-search"></i>
-                <input type="text" [(ngModel)]="productSearch" (keyup)="triggerProductSearch($event)" placeholder="Enter related keywords" />
-            </div>
             <h2>
                 <span class="force-left">
                     <i class="fa fa-trash-o" (click)="showDeleteProductsModal()"></i>
-                </span> Products
+                    
+                </span>
+                <div class="search-bar">
+                    <i class="fa fa-search"></i>
+                    <input type="text" [(ngModel)]="productSearch" (keyup)="triggerProductSearch($event)" placeholder="Enter related keywords" />
+                </div>
+                Products
             </h2>
             <table class="product">
                 <thead>
