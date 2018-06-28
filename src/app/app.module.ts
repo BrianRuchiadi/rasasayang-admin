@@ -35,6 +35,7 @@ import { ShareholderComponent } from './components/pages/shareholder/shareholder
 import { DigitalanalyticComponent } from './components/pages/digitalanalytic/digitalanalytic.component';
 import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
 import { ChangepasswordComponent } from './components/pages/changepassword/changepassword.component';
+import { ChatboxComponent } from './components/pages/chatbox/chatbox.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ChangepasswordComponent } from './components/pages/changepassword/chang
     ShareholderComponent,
     DigitalanalyticComponent,
     LoyaltyComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    ChatboxComponent
     // components
   ],
   imports: [

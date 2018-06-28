@@ -110,6 +110,15 @@ button {
         color: white;
         width: 90%;
     }
+    &.edit {
+        margin-right: 5px;
+        padding: 5px 10px;
+        box-shadow: 1px 1px 10px #30333c;
+        letter-spacing: 1px;
+        background-color: #1F284A;
+        border: none;
+        color: white;
+    }
 }
 
 .fa.fa-trash-o {

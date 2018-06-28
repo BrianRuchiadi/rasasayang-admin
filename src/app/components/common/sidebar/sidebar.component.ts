@@ -22,7 +22,6 @@ export class SidebarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(['this always right', this.location.path()]);
     this.initElementSelector();
     this.initSelectedListState();
   }

@@ -140,6 +140,7 @@
                         <th width="150">Selling Price <i class="fa fa-sort" (click)="sortData('selling_price')"></i></th>
                         <th width="80">Total Sold <i class="fa fa-sort" (click)="sortData('total_sold')"></i></th>
                         <th width="100">Total Profit <i class="fa fa-sort" (click)="sortData('total_profit')"></i></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -154,7 +155,7 @@
                         <td><input type="text" [(ngModel)]="newProduct.name" placeholder="Name" /></td>
                         <td><input type="text" [(ngModel)]="newProduct.base_price" placeholder="Base price" /></td>
                         <td><input type="text" [(ngModel)]="newProduct.selling_price" placeholder="Selling price" /></td>
-                        <td colspan="2">
+                        <td colspan="3">
                             <button class="add">Add Product</button>
                         </td>
                     </tr>
@@ -166,6 +167,7 @@
                         <td class="currency">{{ product.selling_price | currency:'IDR':'symbol-narrow':'1.2-3' }}</td>
                         <td class="text-center">{{ product.total_sold }}</td>
                         <td class="currency">{{ product.total_profit | currency:'IDR':'symbol-narrow':'1.2-3'}}</td>
+                        <td><button class="edit">Edit</button></td>
                     </tr>
 
                 </tbody>
