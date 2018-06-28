@@ -14,8 +14,21 @@
             </div>
             <div class="chat-area">
                 <h3 id="chatter-name">{{chatTarget.name | titlecase}}</h3>
+                <div class="chat-logs">
+                    <ul id="chat-logs-ul" [scrollTop]="scrollTopChatUl">
+                        <li *ngFor="let chatLog of chatLogs" [ngClass]="{
+                            'log-user': chatLog.id === userId,
+                            'log-target': chatLog.id !== userId
+                        }">
+                            {{chatLog.message}}
+                        </li>
+                    </ul>
+                </div>
                 <div class="text-area">
-                    <input type="text">
+                    <div class="chatbox-area">
+                        <input type="text" [(ngModel)]="newMessageString">
+                        <i class="fa fa-paper-plane-o" (click)="sendMessage(chatTarget.id)"></i>
+                    </div>
                 </div>
             </div>
         </div>

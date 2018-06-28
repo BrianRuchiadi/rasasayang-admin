@@ -52,11 +52,52 @@
         background-color: #2a2d35;
         text-align: center;
     }
+    .chat-logs {
+        ul {
+            display: flex;
+            flex-direction: column;
+            height: 315px;
+            width: 100%;
+            overflow: scroll;
+            li {
+                width: fit-content;
+                max-width: 200px;
+                border-radius: 4px;
+                // display: inline-block;
+                &.log-user {
+                    align-self: flex-end;
+                    padding: 10px;
+                    margin: 5px;
+                    background-color: #f6a821;
+                }
+                &.log-target {
+                    align-self: flex-start;
+                    padding: 10px;
+                    margin: 5px;
+                    background-color: rgba(31, 41, 44, 0.7);
+                }
+            }
+        }
+    }
     .text-area {
         position: absolute;
         bottom: 0px;
         width: 100%;
         height: 50px;
         background-color: rgba(215, 215, 215, 0.5);
+        .chatbox-area {
+            width: 90%;
+            margin: 10px auto;
+            input {
+                height: 25px;
+                border: none;
+                border-bottom: 1px solid #f6a821;
+                width: 93%;
+            }
+            .fa.fa-paper-plane-o {
+                margin-left: 2px;
+                width: 4%;
+            }
+        }
     }
 }
