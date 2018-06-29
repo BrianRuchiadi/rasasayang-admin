@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { friends, userChatMock } from '../../../mock/friends';
+import { NavigationSliderService } from '../../../services/utilities/navigation-slider.service';
 
 @Component({
   selector: 'app-chatbox',
@@ -16,23 +17,44 @@ export class ChatboxComponent implements OnInit {
   newMessageString: any;
   chatLogs: any;
 
+  elementContent: any;
   elementChatterName: any;
   elementChatLogsUl: any;
 
   scrollTopChatUl: any = 0;
 
-  constructor() { }
+  constructor(
+    private navigationSliderService: NavigationSliderService
+  ) { }
 
   ngOnInit() {
     this.initElementSelector();
     this.getChatFriends();
+    this.observeBurgerState();
 
     this.userId = 100;
   }
 
   initElementSelector() {
+    this.elementContent = document.getElementById('content');
     this.elementChatterName = document.getElementById('chatter-name');
     this.elementChatLogsUl = document.getElementById('chat-logs-ul');
+  }
+
+
+  observeBurgerState() {
+    this.navigationSliderService.slideStateObservable.subscribe(
+      (state) => {
+        if (!state) {
+          this.elementContent.style.animation = 'contentExpand 1s ease-in-out 1';
+          setTimeout(() => this.elementContent.style.width = '100vw', 1000);
+          return;
+        }
+
+        this.elementContent.style.animation = 'contentCollapse 1s ease-in-out 1';
+        setTimeout(() => this.elementContent.style.width = 'calc(100vw - 200px)', 1000);
+      }
+    );
   }
 
   getChatFriends() {

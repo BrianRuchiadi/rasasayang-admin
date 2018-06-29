@@ -96,3 +96,21 @@ input {
         outline: none;
     }
 }
+
+@keyframes contentExpand {
+    0% {
+        width: calc(100vw - 200px);
+    }
+    100% {
+        width: 100vw;
+    }
+}
+
+@keyframes contentCollapse {
+    0% {
+        width: 100vw;
+    }
+    100% {
+        width: calc(100vw - 200px);
+    }
+}
