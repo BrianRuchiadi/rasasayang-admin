@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationSliderService } from '../../../services/utilities/navigation-slider.service';
 
 @Component({
   selector: 'app-topbar',
@@ -14,7 +15,9 @@ export class TopbarComponent implements OnInit {
   elementNotificationContent: any;
   elementSettingContent: any;
 
-  constructor() {
+  constructor(
+    private navigationSliderService: NavigationSliderService
+  ) {
   }
 
   ngOnInit() {
@@ -25,6 +28,10 @@ export class TopbarComponent implements OnInit {
     this.elementEmailContent = document.getElementById('email-content');
     this.elementNotificationContent = document.getElementById('notification-content');
     this.elementSettingContent = document.getElementById('setting-content');
+  }
+
+  changeNavigationSliderState() {
+    this.navigationSliderService.changeSlideState();
   }
 
   triggerContent(type) {

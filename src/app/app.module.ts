@@ -36,6 +36,7 @@ import { DigitalanalyticComponent } from './components/pages/digitalanalytic/dig
 import { LoyaltyComponent } from './components/pages/loyalty/loyalty.component';
 import { ChangepasswordComponent } from './components/pages/changepassword/changepassword.component';
 import { ChatboxComponent } from './components/pages/chatbox/chatbox.component';
+import { NavigationSliderService } from './services/utilities/navigation-slider.service';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { ChatboxComponent } from './components/pages/chatbox/chatbox.component';
   providers: [
     AuthService,
     NotificationService,
+    NavigationSliderService,
     AuthUserGuard,
     // services
     RequestInterceptorsProviders,

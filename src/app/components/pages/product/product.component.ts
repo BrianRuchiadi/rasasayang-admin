@@ -4,6 +4,7 @@ import { NotificationService } from '../../../services/utilities/notification.se
 import { NotificationCode } from '../../../enums/notification-code';
 import { previewSingleImageThumbnail, removeSingleImageThumbnail } from '../../../functions/image-handler';
 import { multipleCheckbox } from '../../../functions/multiple-checkbox';
+import { NavigationSliderService } from '../../../services/utilities/navigation-slider.service';
 
 @Component({
   selector: 'app-product',
@@ -28,8 +29,11 @@ export class ProductComponent implements OnInit {
     total_sold: null,
     total_profit: null
   };
-  thumbnailPreviewElement: any;
-  thumbnailElement: any;
+
+  elementThumbnailPreview: any;
+  elementThumbnail: any;
+  elementContent: any;
+
   isDeleteProductModalOpen: any = false;
 
   productSelectedStart: any = null;
@@ -38,7 +42,8 @@ export class ProductComponent implements OnInit {
   productSearch: any = '';
 
   constructor(
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private navigationSliderService: NavigationSliderService
   ) { }
 
   @HostListener('window:keyup', ['$event'])
@@ -64,8 +69,27 @@ export class ProductComponent implements OnInit {
         total_profit: 120000, isSelected: false}
     ];
     this.originalProducts = JSON.parse(JSON.stringify(this.products));
-    this.thumbnailElement = document.getElementById('thumbnail');
-    this.thumbnailPreviewElement = document.getElementById('thumbnail-preview');
+    this.initElementSelector();
+    this.observeBurgerState();
+  }
+
+  initElementSelector() {
+    this.elementContent = document.getElementById('content');
+    this.elementThumbnail = document.getElementById('thumbnail');
+    this.elementThumbnailPreview = document.getElementById('thumbnail-preview');
+  }
+
+  observeBurgerState() {
+    this.navigationSliderService.slideStateObservable.subscribe(
+      (state) => {
+        if (!state) {
+          this.elementContent.style.width = '100vw';
+          return;
+        }
+
+        this.elementContent.style.width = 'calc(100vw - 200px)';
+      }
+    );
   }
 
   sortData(attributes) {
@@ -76,19 +100,19 @@ export class ProductComponent implements OnInit {
     );
   }
 
-  previewThumbnail(thumbnailElement, thumbnailPreviewElement) {
+  previewThumbnail(elementThumbnail, elementThumbnailPreview) {
     previewSingleImageThumbnail(
-      thumbnailElement,
-      thumbnailPreviewElement,
+      elementThumbnail,
+      elementThumbnailPreview,
       this.imageFile.nativeElement.files[0]
     );
   }
 
-  deleteThumbnail(thumbnailElement, thumbnailPreviewElement) {
+  deleteThumbnail(elementThumbnail, elementThumbnailPreview) {
     this.newProduct.thumbnail = null;
     removeSingleImageThumbnail(
-      thumbnailElement,
-      thumbnailPreviewElement
+      elementThumbnail,
+      elementThumbnailPreview
     );
   }
 

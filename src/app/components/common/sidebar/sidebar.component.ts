@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { NavigationSliderService } from '../../../services/utilities/navigation-slider.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./../../../styles/common/_sidebar.scss']
 })
 export class SidebarComponent implements OnInit {
+  elementSidebar: any;
   elementDashboard: any;
   elementFinance: any;
   elementProducts: any;
@@ -19,11 +21,26 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private location: Location,
+    private navigationSliderService: NavigationSliderService
   ) { }
 
   ngOnInit() {
     this.initElementSelector();
     this.initSelectedListState();
+    this.observeBurgerState();
+  }
+
+  observeBurgerState() {
+    this.navigationSliderService.slideStateObservable.subscribe(
+      (state) => {
+        if (!state) {
+          this.elementSidebar.style.display = 'none';
+          return;
+        }
+
+        this.elementSidebar.style.display = 'inline-block';
+      }
+    );
   }
 
   initSelectedListState() {
@@ -59,6 +76,7 @@ export class SidebarComponent implements OnInit {
   }
 
   initElementSelector() {
+    this.elementSidebar = document.getElementById('sidebar');
     this.elementDashboard = document.getElementById('dashboard');
     this.elementFinance = document.getElementById('finance');
     this.elementProducts = document.getElementById('products');
