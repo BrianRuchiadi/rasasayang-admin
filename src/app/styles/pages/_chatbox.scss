@@ -27,12 +27,31 @@
         }
     }
     .search {
+        // color: black;
         position: absolute;
         bottom: 0px;
         width: 180px;
         height: 100px;
-        background-color: rgba(215, 215, 215, 0.8);
+        background-color: rgba(31, 41, 44, 0.25);
         border-bottom-left-radius: 4px;
+        h4 {
+            display: block;
+            margin: 15px auto;
+            text-align: center;
+        }
+        .search-box {
+            text-align: center;
+            input {
+                background-color: transparent;
+                color: white;
+                border: none;
+                border-bottom: 1px solid #f6a821;
+                width: 120px;
+            }
+            .fa.fa-search {
+                margin-left: 5px;
+            }
+        }
     }
 }
 
