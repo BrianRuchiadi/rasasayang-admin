@@ -13,7 +13,7 @@
         margin-top: 10px;
         width: 100%;
         &.product {
-            width: auto;
+            width: 100%;
             margin: 10px auto;
             input:not([type=checkbox]) {
                 color: white;
@@ -63,7 +63,8 @@
 .top-product-panel {
     display: inline-block;
     vertical-align: top;
-    width: 200px;
+    min-width: 200px;
+    width: 25%;
     min-height: 250px;
     margin: 10px 20px;
     background-color: #BD632F;
@@ -83,7 +84,7 @@
 
 .product-image {
     height: 150px;
-    width: 200px;
+    width: 100%;
     img {
         object-fit: cover;
         width: 100%;
