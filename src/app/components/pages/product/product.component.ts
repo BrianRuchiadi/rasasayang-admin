@@ -83,11 +83,13 @@ export class ProductComponent implements OnInit {
     this.navigationSliderService.slideStateObservable.subscribe(
       (state) => {
         if (!state) {
-          this.elementContent.style.width = '100vw';
+          this.elementContent.style.animation = 'contentExpand 1s ease-in-out 1';
+          setTimeout(() => this.elementContent.style.width = '100vw', 1000);
           return;
         }
 
-        this.elementContent.style.width = 'calc(100vw - 200px)';
+        this.elementContent.style.animation = 'contentCollapse 1s ease-in-out 1';
+        setTimeout(() => this.elementContent.style.width = 'calc(100vw - 200px)', 1000);
       }
     );
   }

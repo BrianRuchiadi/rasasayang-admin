@@ -34,11 +34,13 @@ export class SidebarComponent implements OnInit {
     this.navigationSliderService.slideStateObservable.subscribe(
       (state) => {
         if (!state) {
-          this.elementSidebar.style.display = 'none';
+          this.elementSidebar.style.animation = 'sidebarExit 1s ease-in-out 1';
+          setTimeout(() => this.elementSidebar.style.display = 'none', 1000);
           return;
         }
-
         this.elementSidebar.style.display = 'inline-block';
+        this.elementSidebar.style.animation = 'sidebarEnter 1s ease-in-out 1';
+
       }
     );
   }

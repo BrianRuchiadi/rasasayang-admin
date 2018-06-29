@@ -22,3 +22,21 @@ i {
     width: 30px;
     margin-left: 20px;
 }
+
+@keyframes sidebarExit {
+    0% {
+        margin-left: 0%;
+    }
+    100% {
+        margin-left: -200px;
+    }
+}
+
+@keyframes sidebarEnter {
+    0% {
+        margin-left: -200px;
+    }
+    100% {
+        margin-left: 0px;
+    }
+}
