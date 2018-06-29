@@ -140,7 +140,7 @@
                         <th width="150">Selling Price <i class="fa fa-sort" (click)="sortData('selling_price')"></i></th>
                         <th width="80">Total Sold <i class="fa fa-sort" (click)="sortData('total_sold')"></i></th>
                         <th width="100">Total Profit <i class="fa fa-sort" (click)="sortData('total_profit')"></i></th>
-                        <th></th>
+                        <th width="80"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -167,7 +167,7 @@
                         <td class="currency">{{ product.selling_price | currency:'IDR':'symbol-narrow':'1.2-3' }}</td>
                         <td class="text-center">{{ product.total_sold }}</td>
                         <td class="currency">{{ product.total_profit | currency:'IDR':'symbol-narrow':'1.2-3'}}</td>
-                        <td><button class="edit">Edit</button></td>
+                        <td class="text-left"><button class="edit">Edit</button></td>
                     </tr>
 
                 </tbody>

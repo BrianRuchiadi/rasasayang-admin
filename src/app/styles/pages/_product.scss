@@ -11,9 +11,9 @@
     table {
         border-spacing: 0px;
         margin-top: 10px;
-        width: 100%;
+        width: auto;
         &.product {
-            width: 100%;
+            width: auto;
             margin: 10px auto;
             input:not([type=checkbox]) {
                 color: white;
