@@ -24,3 +24,20 @@
         vertical-align: middle;
     }
 }
+
+.default-panel {
+    &.full {
+        background-color: rgba(68, 70, 79, 0.5);
+        width: 86%;
+        h4 {
+            padding: 10px 15px;
+        }
+    }
+}
+
+canvas {
+    &#income-chart {
+        height: 200px;
+        width: 100%;
+    }
+}
